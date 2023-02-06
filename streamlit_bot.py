@@ -10,4 +10,4 @@ if user_input:
     elif "bye" in user_input.lower():
         st.write("Bot: Goodbye! Have a nice day.")
     else:
-        st.write("Bot: Sorry, I don't understand. Can you try asking me something else?")
+        st.write("Bot: Sorry, I don't understand. Can you try asking me something else?") 
