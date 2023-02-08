@@ -2,7 +2,7 @@ import streamlit as st
 
 st.title("Chatbot")
 
-user_input = st.text_input("User:", value="")
+user_input = st.text_input("Pergunta:", value="")
 
 if user_input:
     if "hi" in user_input.lower():
