@@ -21,8 +21,6 @@ if user_input:
     for i, question in enumerate(questions):
         if question in user_input.lower():
             st.write("Bot: " + answers[i])
-        elif "what time is it?" in user_input.lower():
-            st.write("Bot: The current time is {0}.".format(datetime.now().strftime("%H:%M")))
             break
     else:
         st.write("Bot: Sorry, I don't understand. Can you try asking me something else?")
