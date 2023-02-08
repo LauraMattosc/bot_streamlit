@@ -1,9 +1,9 @@
 import streamlit as st
-import pandas as pd
+import datetime
 
 st.title("Chatbot")
 
-user_input = st.text_input("Pergunta:", value="")
+user_input = st.text_input("Question:", value="")
 
 questions = ["what's your name?",
              "what is the weather today?",
@@ -17,9 +17,6 @@ answers = ["My name is Bot, nice to meet you!",
            "My purpose is to assist and answer questions to the best of my ability.",
            "I am a chatbot designed to answer questions and provide information."]
 
-data = {"questions": questions, "answers": answers}
-df = pd.DataFrame(data)
-
 if user_input:
     for i, question in enumerate(questions):
         if question in user_input.lower():
@@ -27,3 +24,5 @@ if user_input:
             break
     else:
         st.write("Bot: Sorry, I don't understand. Can you try asking me something else?")
+
+st.table(pd.DataFrame({"Question": questions, "Answer": answers}))
