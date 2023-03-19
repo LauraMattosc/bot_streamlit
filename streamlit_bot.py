@@ -22,7 +22,16 @@ def adicionar_pergunta_resposta(pergunta, resposta):
 exemplos = [
     {'Pergunta': 'Qual é o seu nome?', 'Resposta': 'Meu nome é Chatbot.'},
     {'Pergunta': 'Qual é o seu propósito?', 'Resposta': 'Meu propósito é responder às suas perguntas e ajudá-lo.'},
-    # Adicione mais exemplos aqui
+    {'Pergunta': 'Você pode me dizer a hora?', 'Resposta': 'Infelizmente, não consigo verificar a hora atual.'},
+    {'Pergunta': 'Quem é o presidente do Brasil?', 'Resposta': 'Não tenho informações atualizadas. Por favor, verifique as informações atualizadas online.'},
+    {'Pergunta': 'Qual é a capital do Brasil?', 'Resposta': 'A capital do Brasil é Brasília.'},
+    {'Pergunta': 'O que é inteligência artificial?', 'Resposta': 'Inteligência artificial é uma área da ciência da computação que busca criar máquinas e sistemas capazes de aprender e tomar decisões.'},
+    {'Pergunta': 'Como está o tempo hoje?', 'Resposta': 'Não consigo verificar a previsão do tempo. Por favor, consulte um site de previsão do tempo.'},
+    {'Pergunta': 'Quem é o autor de Dom Casmurro?', 'Resposta': 'O autor de Dom Casmurro é Machado de Assis.'},
+    {'Pergunta': 'O que é o efeito estufa?', 'Resposta': 'O efeito estufa é um fenômeno natural em que gases na atmosfera retêm o calor, mantendo a temperatura da Terra estável. No entanto, a emissão excessiva de gases de efeito estufa por atividades humanas tem causado um aquecimento global preocupante.'},
+    {'Pergunta': 'Qual é a moeda do Brasil?', 'Resposta': 'A moeda do Brasil é o Real.'},
+    {'Pergunta': 'Quem pintou o quadro "A Última Ceia"?', 'Resposta': 'Leonardo da Vinci pintou "A Última Ceia".'},
+    {'Pergunta': 'O que é fotossíntese?', 'Resposta': 'Fotossíntese é o processo pelo qual as plantas, algas e algumas bactérias convertem energia luminosa em energia química, produzindo glicose e oxigênio a partir de dióxido de carbono e água.'},
 ]
 
 user_input = st.text_input("Pergunta:", value="")
