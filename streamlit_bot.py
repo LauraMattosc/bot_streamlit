@@ -43,8 +43,10 @@ exemplos = [
 pergunta = st.text_input("Faça uma pergunta:")
 
 # Exibir lista de perguntas
-perguntas = df['Pergunta'].tolist()
-pergunta_selecionada = st.selectbox("Selecione uma pergunta:", perguntas)
+df = pd.DataFrame(columns=['Pergunta', 'Resposta'])
+
+for exemplo in exemplos:
+    adicionar_pergunta_resposta(exemplo['Pergunta'], exemplo['Resposta']
 
 # Buscar a resposta no DataFrame
 if pergunta_selecionada:
