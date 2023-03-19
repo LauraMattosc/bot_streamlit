@@ -13,6 +13,7 @@ google_analytics_code = """
 
   gtag('config', 'G-VK75WN5TK3');
 </script>
+"""
 
 nlp = spacy.load('pt_core_news_sm')
 
