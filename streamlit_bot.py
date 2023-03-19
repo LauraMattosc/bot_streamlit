@@ -5,6 +5,8 @@ import spacy
 nlp = spacy.load('pt_core_news_sm')
 
 st.title("Chatbot")
+# Personalizar tema e layout do Streamlit
+st.set_page_config(page_title="Chatbot", page_icon=":robot_face:", layout="wide", initial_sidebar_state="expanded")
 
 def adicionar_pergunta_resposta(pergunta, resposta):
     global df
