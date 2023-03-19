@@ -45,12 +45,17 @@ pergunta = st.text_input("Faça uma pergunta:")
 # Criar DataFrame inicial com as perguntas de exemplo
 df = pd.DataFrame(exemplos)
 
+  
 if pergunta:
     doc = nlp(pergunta)
     for token in doc:
         print(token.text, token.pos_, token.dep_)
     # Buscar a resposta no DataFrame
     resposta = df[df['Pergunta'] == pergunta]['Resposta'].iloc[0] if not df[df['Pergunta'] == pergunta].empty else "Desculpe, não sei a resposta para essa pergunta."
+   
     # Adicionar a pergunta e a resposta ao DataFrame
     adicionar_pergunta_resposta(pergunta, resposta)
+    st.markdown(f"<p style='background-color:#f9f9f9;border-radius:3px;padding:10px'>{resposta}</p>", unsafe_allow_html=True)
+    
+    
     st.write(resposta)
