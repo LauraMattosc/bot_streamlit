@@ -42,20 +42,18 @@ exemplos = [
 
 pergunta = st.text_input("Faça uma pergunta:")
 
-# Criar DataFrame inicial com as perguntas de exemplo
-df = pd.DataFrame(exemplos)
+# Exibir lista de perguntas
+perguntas = df['Pergunta'].tolist()
+pergunta_selecionada = st.selectbox("Selecione uma pergunta:", perguntas)
 
-if pergunta:
-    doc = nlp(pergunta)
-    for token in doc:
-        print(token.text, token.pos_, token.dep_)
-    # Buscar a resposta no DataFrame
-    resposta = df[df['Pergunta'] == pergunta]['Resposta'].iloc[0] if not df[df['Pergunta'] == pergunta].empty else "Desculpe, não sei a resposta para essa pergunta."
-   
-    # Adicionar a pergunta e a resposta ao DataFrame
-    adicionar_pergunta_resposta(pergunta, resposta)
+# Buscar a resposta no DataFrame
+if pergunta_selecionada:
+    resposta = df[df['Pergunta'] == pergunta_selecionada]['Resposta'].iloc[0]
+else:
+    resposta = ""
+
+# Exibir resposta
+if resposta:
     st.markdown(f"<div style='background-color:transparent;border-radius:3px;padding:10px;color:black;margin-top:10px'>Resposta do Bot 🤖</div>", unsafe_allow_html=True)
-
     st.markdown(f"<div style='background-color:transparent;border-radius:3px;padding:10px;color:black;margin-top:10px;font-size:16px'>{resposta}</div>", unsafe_allow_html=True)
-
     st.empty()
