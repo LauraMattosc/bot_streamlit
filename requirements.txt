@@ -4,3 +4,4 @@ torch
 sentence-transformers
 pandas
 spacy
+pt-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/pt_core_news_sm-3.2.0/pt_core_news_sm-3.2.0-py3-none-any.whl
