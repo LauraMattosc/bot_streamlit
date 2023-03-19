@@ -56,5 +56,11 @@ if pergunta:
     adicionar_pergunta_resposta(pergunta, resposta)
     st.markdown(f"<div style='background-color:black;border-radius:3px;padding:10px;color:white;font-weight:bold;margin-top:10px'>Resposta do Bot 🤖</div>", unsafe_allow_html=True)
 
+    # Adicionar a pergunta e a resposta ao DataFrame
+    adicionar_pergunta_resposta(pergunta, resposta)
+    st.markdown(f"<div style='background-color:black;border-radius:3px;padding:10px;color:white;font-weight:bold;margin-top:10px'>Resposta do Bot 🤖</div>", unsafe_allow_html=True)
+
+    st.markdown(f"<div style='background-color:transparent;border-radius:3px;padding:10px;color:black;margin-top:10px'>{resposta}</div>", unsafe_allow_html=True)
+
     
     st.write(resposta)
