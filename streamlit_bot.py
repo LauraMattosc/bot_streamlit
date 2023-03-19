@@ -2,8 +2,7 @@ import streamlit as st
 import pandas as pd
 import spacy
 
-# Inicializar o modelo do spaCy em português
-nlp = spacy.load("pt_core_news_sm")
+nlp = spacy.load('/path/to/pt_core_news_sm')
 
 def adicionar_pergunta_resposta(pergunta, resposta):
     global df
