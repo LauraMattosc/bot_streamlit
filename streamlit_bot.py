@@ -25,6 +25,9 @@ exemplos = [
     {'Pergunta': 'O que é fotossíntese?', 'Resposta': 'Fotossíntese é o processo pelo qual as plantas, algas e algumas bactérias convertem energia luminosa em energia química, produzindo glicose e oxigênio a partir de dióxido de carbono e água.'},
 ]
 
+pergunta = st.text_input("Faça uma pergunta:")
+
+
 # Criar DataFrame inicial com as perguntas de exemplo
 df = pd.DataFrame(exemplos)
 
