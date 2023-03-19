@@ -2,23 +2,25 @@ import streamlit as st
 import pandas as pd
 import spacy
 
+
 nlp = spacy.load('pt_core_news_sm')
 
 # Definir estilo da página
 st.set_page_config(page_title="Chatbot", page_icon=":robot_face:", layout="wide")
 
 # Definir título e subtítulo da página
-st.title("Chatbot🤖")
-st.markdown("<div style='text-align: center;'><i>Sou um chatbot e estou aqui para responder suas perguntas! 😄</i></div>", unsafe_allow_html=True)
+st.title("Chatbot 🤖")
+st.markdown("Sou um chatbot e estou aqui para responder suas perguntas! 😄")
 
-# Adicionar estilo para o selectbox
-st.markdown("<style>.css-19t32er {background-color: #eee;}</style>", unsafe_allow_html=True)
+# Definir cores
+cor_fundo = '#F6F6F6'
+cor_botao = '#333333'
 
 def adicionar_pergunta_resposta(pergunta, resposta):
     global df
     nova_linha = pd.DataFrame({'Pergunta': [pergunta], 'Resposta': [resposta]})
     df = pd.concat([df, nova_linha], ignore_index=True)
-
+    
 # Exemplo de perguntas e respostas
 exemplos = [
     {'Pergunta': 'Qual é o seu nome?', 'Resposta': 'Meu nome é Chatbot.'},
@@ -41,11 +43,12 @@ exemplos = [
     {'Pergunta': 'O que é inteligência artificial?', 'Resposta': 'Inteligência artificial é uma área da ciência da computação que busca criar máquinas e sistemas capazes de aprender e tomar decisões.'},
 ]
 
-pergunta_selecionada = st.selectbox("Escolha uma pergunta:", [exemplo['Pergunta'] for exemplo in exemplos], key="select")
+# Adicionar estilo à seleção de perguntas
+st.markdown("<h3 style='text-align:center;margin-top:20px;'>Selecione uma pergunta</h3>", unsafe_allow_html=True)
+pergunta_selecionada = st.selectbox("", [exemplo['Pergunta'] for exemplo in exemplos], key='pergunta', index=0)
 
 # Exibir lista de perguntas
 df = pd.DataFrame(columns=['Pergunta', 'Resposta'])
-
 for exemplo in exemplos:
     adicionar_pergunta_resposta(exemplo['Pergunta'], exemplo['Resposta'])
 
@@ -55,8 +58,8 @@ if pergunta_selecionada:
 else:
     resposta = ""
 
-# Exibir resposta
+# Adicionar estilo à resposta
 if resposta:
-    st.markdown(f"<div style='background-color:#F5F5F5;border-radius:3px;padding:10px;color:black;margin-top:10px'>Resposta do Bot 🤖</div>", unsafe_allow_html=True)
-    st.markdown(f"<div style='background-color:white;border-radius:3px;padding:10px;color:black;margin-top:10px;font-size:16px;border: 1px solid #eee;'>{resposta}</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='background-color:#EFEFEF;border-radius:5px;padding:20px;margin-top:30px;'>Resposta do Bot 🤖</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='background-color:#FFFFFF;border-radius:5px;padding:20px;margin-top:10px;font-size:16px;color:#333333'>{resposta}</div>", unsafe_allow_html=True)
     st.empty()
