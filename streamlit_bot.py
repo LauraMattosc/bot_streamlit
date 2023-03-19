@@ -56,7 +56,6 @@ if pergunta:
     adicionar_pergunta_resposta(pergunta, resposta)
     st.markdown(f"<div style='background-color:rgba(0, 0, 0, 0.5);border-radius:3px;padding:10px;color:white;font-weight:bold;margin-top:10px'>Resposta do Bot 🤖</div>", unsafe_allow_html=True)
 
-    st.markdown(f"<div style='background-color:transparent;border-radius:3px;padding:10px;color:black;margin-top:10px'>{resposta}</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='background-color:transparent;border-radius:3px;padding:10px;color:black;margin-top:10px;font-size:16px'>{resposta}</div>", unsafe_allow_html=True)
 
-    
-    st.write(resposta)
+    st.empty()
