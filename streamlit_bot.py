@@ -1,7 +1,18 @@
 import streamlit as st
 import pandas as pd
 import spacy
+import streamlit_analytics
 
+# Configurar o snippet do Google Analytics
+google_analytics_code = """
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VK75WN5TK3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VK75WN5TK3');
+</script>
 
 nlp = spacy.load('pt_core_news_sm')
 
