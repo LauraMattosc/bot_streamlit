@@ -40,13 +40,13 @@ exemplos = [
     {'Pergunta': 'O que é inteligência artificial?', 'Resposta': 'Inteligência artificial é uma área da ciência da computação que busca criar máquinas e sistemas capazes de aprender e tomar decisões.'},
 ]
 
-pergunta = st.text_input("Faça uma pergunta:")
+pergunta_selecionada = st.selectbox("Escolha uma pergunta:", [exemplo['Pergunta'] for exemplo in exemplos])
 
 # Exibir lista de perguntas
 df = pd.DataFrame(columns=['Pergunta', 'Resposta'])
 
 for exemplo in exemplos:
-    adicionar_pergunta_resposta(exemplo['Pergunta'], exemplo['Resposta']
+    adicionar_pergunta_resposta(exemplo['Pergunta'], exemplo['Resposta'])
 
 # Buscar a resposta no DataFrame
 if pergunta_selecionada:
