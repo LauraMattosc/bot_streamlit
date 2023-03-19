@@ -9,7 +9,7 @@ nlp = spacy.load('pt_core_news_sm')
 st.set_page_config(page_title="Chatbot", page_icon=":robot_face:", layout="wide")
 
 # Definir título e subtítulo da página
-st.title("Chatbot")
+st.title("Chatbot🤖")
 st.markdown("Sou um chatbot e estou aqui para responder suas perguntas! 😄")
 
 
@@ -54,7 +54,7 @@ if pergunta:
    
     # Adicionar a pergunta e a resposta ao DataFrame
     adicionar_pergunta_resposta(pergunta, resposta)
-    st.markdown(f"<div style='background-color:transparent;border-radius:3px;padding:10px;color:white;font-weight:bold;margin-top:10px'>Resposta do Bot 🤖</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='background-color:transparent;border-radius:3px;padding:10px;color:black;font-weight:bold;margin-top:10px'>Resposta do Bot 🤖</div>", unsafe_allow_html=True)
 
     st.markdown(f"<div style='background-color:transparent;border-radius:3px;padding:10px;color:black;margin-top:10px;font-size:16px'>{resposta}</div>", unsafe_allow_html=True)
 
