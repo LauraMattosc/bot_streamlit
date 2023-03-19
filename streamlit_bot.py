@@ -6,7 +6,7 @@ import spacy
 nlp = spacy.load('pt_core_news_sm')
 
 # Definir estilo da página
-st.set_page_config(page_title="Chatbot", page_icon=":robot_face:", layout="wide")
+st.set_page_config(page_title="Chatbot", page_icon=":robot_face:")
 
 # Definir título e subtítulo da página
 st.title("Chatbot da Laura 🤖")
