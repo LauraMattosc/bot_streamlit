@@ -45,7 +45,6 @@ pergunta = st.text_input("Faça uma pergunta:")
 # Criar DataFrame inicial com as perguntas de exemplo
 df = pd.DataFrame(exemplos)
 
-  
 if pergunta:
     doc = nlp(pergunta)
     for token in doc:
@@ -55,7 +54,8 @@ if pergunta:
    
     # Adicionar a pergunta e a resposta ao DataFrame
     adicionar_pergunta_resposta(pergunta, resposta)
-    st.markdown(f"<p style='background-color:#f9f9f9;border-radius:3px;padding:10px'>{resposta}</p>", unsafe_allow_html=True)
-    
+    st.markdown(f"<div style='background-color:#f9f9f9;border-radius:3px;padding:10px'>{resposta}</div>", unsafe_allow_html=True)
+
+  
     
     st.write(resposta)
