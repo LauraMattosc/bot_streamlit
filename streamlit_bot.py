@@ -57,5 +57,5 @@ else:
 # Exibir resposta
 if resposta:
     st.markdown("<div style='background-color: #F63366; border-radius: 3px; padding: 10px; color: white; text-align: center; margin-top: 20px'>Resposta do Bot ⬇️</div>", unsafe_allow_html=True)
-    st.markdown(f"<div style='background-color: #FEE12B; border-radius: 3px; padding: 10px; color: black; text-align: center; margin-top: 10px; font-size: 16px; text-align: justify'>{resposta}</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='background-color: #1DB916; border-radius: 3px; padding: 10px; color: black; text-align: center; margin-top: 10px; font-size: 16px; text-align: justify'>{resposta}</div>", unsafe_allow_html=True)
     st.empty()
