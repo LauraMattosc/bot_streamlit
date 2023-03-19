@@ -1,10 +1,11 @@
 import streamlit as st
-from datetime import datetime
 import pandas as pd
 from sentence_transformers import SentenceTransformer, util
 
-import logging
-logging.basicConfig(level=logging.ERROR)
+def adicionar_pergunta_resposta(pergunta, resposta):
+    global df
+    nova_linha = pd.DataFrame({'Pergunta': [pergunta], 'Resposta': [resposta]})
+    df = pd.concat([df, nova_linha], ignore_index=True)
 
 # Inicializar o modelo BERT em português
 model = SentenceTransformer('neuralmind/bert-base-portuguese-cased')
@@ -33,6 +34,7 @@ if user_input:
     resposta = exemplos[resposta_indice]['Resposta']
 
     if resposta:
+        adicionar_pergunta_resposta(user_input, resposta)
         st.write(resposta)
 
 # Exibir tabela com perguntas de exemplo
