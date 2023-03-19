@@ -2,12 +2,15 @@ import streamlit as st
 import pandas as pd
 import spacy
 
-# Personalizar tema e layout do Streamlit
-st.set_page_config(page_title="Chatbot", page_icon=":robot_face:", layout="wide", initial_sidebar_state="expanded")
 
 nlp = spacy.load('pt_core_news_sm')
 
+# Definir estilo da página
+st.set_page_config(page_title="Chatbot", page_icon=":robot_face:", layout="wide")
+
+# Definir título e subtítulo da página
 st.title("Chatbot")
+st.markdown("Sou um chatbot e estou aqui para responder suas perguntas! 😄")
 
 
 def adicionar_pergunta_resposta(pergunta, resposta):
