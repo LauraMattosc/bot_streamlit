@@ -1,16 +1,38 @@
 import streamlit as st
+from datetime import datetime
+import pandas as pd
+
 st.title("Chatbot")
+
+# Criar DataFrame inicial
+colunas = ['Pergunta', 'Resposta']
+df = pd.DataFrame(columns=colunas)
+
+# Função para adicionar perguntas e respostas ao DataFrame
+def adicionar_pergunta_resposta(pergunta, resposta):
+    global df
+    nova_linha = {'Pergunta': pergunta, 'Resposta': resposta}
+    df = df.append(nova_linha, ignore_index=True)
+
 user_input = st.text_input("Pergunta:", value="")
 if user_input:
-    if "what's your name?" in user_input.lower():
-        st.write("Bot: My name is Bot, nice to meet you!")
-    elif "what is the weather today?" in user_input.lower():
-        st.write("Bot: I am sorry, I am not capable of checking the weather. You can try searching for it online.")
-    elif "what time is it?" in user_input.lower():
-        st.write("Bot: The current time is {0}.".format(datetime.now().strftime("%H:%M")))
-    elif "what's your purpose?" in user_input.lower():
-        st.write("Bot: My purpose is to assist and answer questions to the best of my ability.")
-    elif "what do you do?" in user_input.lower():
-        st.write("Bot: I am a chatbot designed to answer questions and provide information.")
+    resposta = ""
+    if "qual é o seu nome?" in user_input.lower():
+        resposta = "Bot: Meu nome é Bot, prazer em conhecê-lo(a)!"
+    elif "como está o tempo hoje?" in user_input.lower():
+        resposta = "Bot: Desculpe, não sou capaz de verificar o tempo. Você pode tentar procurar online."
+    elif "que horas são?" in user_input.lower():
+        resposta = "Bot: A hora atual é {0}.".format(datetime.now().strftime("%H:%M"))
+    elif "qual é a sua função?" in user_input.lower():
+        resposta = "Bot: Minha função é ajudar e responder às perguntas da melhor maneira possível."
+    elif "o que você faz?" in user_input.lower():
+        resposta = "Bot: Sou um chatbot projetado para responder perguntas e fornecer informações."
     else:
-        st.write("Bot: Sorry, I don't understand. Can you try asking me something else?")
+        resposta = "Bot: Desculpe, não entendi. Você pode tentar me fazer outra pergunta?"
+
+    if resposta:
+        adicionar_pergunta_resposta(user_input, resposta)
+        st.write(resposta)
+
+# Exibir tabela com perguntas e respostas
+st.table(df)
