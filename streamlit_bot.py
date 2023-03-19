@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import spacy
 
-nlp = spacy.load('pt_core_news_sm') 
+nlp = spacy.load('pt_core_news_sm')
 
 def adicionar_pergunta_resposta(pergunta, resposta):
     global df
@@ -25,11 +25,10 @@ exemplos = [
     {'Pergunta': 'O que é fotossíntese?', 'Resposta': 'Fotossíntese é o processo pelo qual as plantas, algas e algumas bactérias convertem energia luminosa em energia química, produzindo glicose e oxigênio a partir de dióxido de carbono e água.'},
 ]
 
-pergunta = st.text_input("Faça uma pergunta:")
-
-
 # Criar DataFrame inicial com as perguntas de exemplo
 df = pd.DataFrame(exemplos)
 
 st.title("Chatbot")
 
+# Obter a pergunta do usuário
+pergunta = st.text_input("Faça uma pergunta")
