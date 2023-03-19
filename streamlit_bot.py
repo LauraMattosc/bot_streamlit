@@ -1,6 +1,15 @@
 import streamlit as st
 from datetime import datetime
 import pandas as pd
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
+
+# Inicializar o ChatterBot
+chatbot = ChatBot('Bot')
+treinador = ChatterBotCorpusTrainer(chatbot)
+
+# Treinar o ChatterBot com o corpus em português
+treinador.train("chatterbot.corpus.portuguese")
 
 st.title("Chatbot")
 
@@ -16,23 +25,12 @@ def adicionar_pergunta_resposta(pergunta, resposta):
 
 user_input = st.text_input("Pergunta:", value="")
 if user_input:
-    resposta = ""
-    if "qual é o seu nome?" in user_input.lower():
-        resposta = "Bot: Meu nome é Bot, prazer em conhecê-lo(a)!"
-    elif "como está o tempo hoje?" in user_input.lower():
-        resposta = "Bot: Desculpe, não sou capaz de verificar o tempo. Você pode tentar procurar online."
-    elif "que horas são?" in user_input.lower():
-        resposta = "Bot: A hora atual é {0}.".format(datetime.now().strftime("%H:%M"))
-    elif "qual é a sua função?" in user_input.lower():
-        resposta = "Bot: Minha função é ajudar e responder às perguntas da melhor maneira possível."
-    elif "o que você faz?" in user_input.lower():
-        resposta = "Bot: Sou um chatbot projetado para responder perguntas e fornecer informações."
-    else:
-        resposta = "Bot: Desculpe, não entendi. Você pode tentar me fazer outra pergunta?"
+    resposta = chatbot.get_response(user_input)
+    resposta_texto = str(resposta)
 
-    if resposta:
-        adicionar_pergunta_resposta(user_input, resposta)
-        st.write(resposta)
+    if resposta_texto:
+        adicionar_pergunta_resposta(user_input, resposta_texto)
+        st.write(resposta_texto)
 
 # Exibir tabela com perguntas e respostas
 st.table(df)
