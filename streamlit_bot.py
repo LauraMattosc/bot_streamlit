@@ -9,7 +9,7 @@ nlp = spacy.load('pt_core_news_sm')
 st.set_page_config(page_title="Chatbot", page_icon=":robot_face:", layout="wide")
 
 # Definir título e subtítulo da página
-st.title("Chatbot🤖")
+st.title("Chatbot da Laura 🤖")
 st.markdown("<h3 style='text-align: center; color: #F63366'>Sou um chatbot e estou aqui para responder suas perguntas! 😄</h3>", unsafe_allow_html=True)
 
 
