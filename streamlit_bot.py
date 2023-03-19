@@ -9,12 +9,9 @@ nlp = spacy.load('pt_core_news_sm')
 st.set_page_config(page_title="Chatbot", page_icon=":robot_face:", layout="wide")
 
 # Definir título e subtítulo da página
-st.title("Chatbot 🤖")
-st.markdown("Sou um chatbot e estou aqui para responder suas perguntas! 😄")
+st.title("Chatbot🤖")
+st.markdown("<h3 style='text-align: center; color: #F63366'>Sou um chatbot e estou aqui para responder suas perguntas! 😄</h3>", unsafe_allow_html=True)
 
-# Definir cores
-cor_fundo = '#F6F6F6'
-cor_botao = '#333333'
 
 def adicionar_pergunta_resposta(pergunta, resposta):
     global df
@@ -43,9 +40,8 @@ exemplos = [
     {'Pergunta': 'O que é inteligência artificial?', 'Resposta': 'Inteligência artificial é uma área da ciência da computação que busca criar máquinas e sistemas capazes de aprender e tomar decisões.'},
 ]
 
-# Adicionar estilo à seleção de perguntas
-st.markdown("<h3 style='text-align:center;margin-top:20px;'>Selecione uma pergunta</h3>", unsafe_allow_html=True)
-pergunta_selecionada = st.selectbox("", [exemplo['Pergunta'] for exemplo in exemplos], key='pergunta', index=0)
+# Exibir pergunta selecionada
+pergunta_selecionada = st.selectbox("Escolha uma pergunta:", [exemplo['Pergunta'] for exemplo in exemplos])
 
 # Exibir lista de perguntas
 df = pd.DataFrame(columns=['Pergunta', 'Resposta'])
@@ -58,8 +54,8 @@ if pergunta_selecionada:
 else:
     resposta = ""
 
-# Adicionar estilo à resposta
+# Exibir resposta
 if resposta:
-    st.markdown(f"<div style='background-color:#EFEFEF;border-radius:5px;padding:20px;margin-top:30px;'>Resposta do Bot 🤖</div>", unsafe_allow_html=True)
-    st.markdown(f"<div style='background-color:#FFFFFF;border-radius:5px;padding:20px;margin-top:10px;font-size:16px;color:#333333'>{resposta}</div>", unsafe_allow_html=True)
+    st.markdown("<div style='background-color: #F63366; border-radius: 3px; padding: 10px; color: white; text-align: center; margin-top: 20px'>Resposta do Bot ⬇️</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='background-color: #FEE12B; border-radius: 3px; padding: 10px; color: black; margin-top: 10px; font-size: 16px; text-align: justify'>{resposta}</div>", unsafe_allow_html=True)
     st.empty()
